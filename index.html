@@ -3,39 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcohol Clicker</title>
+    <title>Enhanced Alcohol Clicker Game</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        /* Better styling */
-        .container { display: flex; flex-direction: column; align-items: center; }
-        /* Mobile optimization */
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
         }
+        h1 { text-align: center; }
+        .stats, .achievements { margin: 20px 0; }
+        .achievement { margin: 10px 0; }
+        .tab { cursor: pointer; display: inline-block; padding: 10px; background: #444; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Alcohol Clicker!</h1>
-        <div id="upgrades">
-            <h2>Upgrades</h2>
-            <ul>
-                <li>New Upgrade 1</li>
-                <li>New Upgrade 2</li>
-                <li>New Upgrade 3</li>
-            </ul>
-        </div>
-        <div id="prestige">
-            <h2>Prestige System</h2>
-            <p>Prestige allows you to reset your progress for special benefits!</p>
-        </div>
-        <div id="animations">
-            <p>Enjoy our new smooth animations!</p>
-        </div>
-        <div id="passive-income">
-            <h2>Passive Income</h2>
-            <p>Your investments earn money over time!</p>
-        </div>
+    <h1>Enhanced Alcohol Clicker Game</h1>
+    <div class="tabs">
+        <span class="tab" onclick="showStats()">Stats</span>
+        <span class="tab" onclick="showAchievements()">Achievements</span>
     </div>
+    <div class="stats">
+        <p>Click Multiplier: <span id="clickMultiplier">1</span></p>
+        <p>Passive Income: <span id="passiveIncome">0</span></p>
+    </div>
+    <div class="achievements" style="display: none;">
+        <div class="achievement">Achievement 1: First Click</div>
+        <div class="achievement">Achievement 2: Buy First Upgrade</div>
+        <div class="achievement">Achievement 3: Reach 100 Points</div>
+        <div class="achievement">Achievement 4: Prestige</div>
+        <div class="achievement">Achievement 5: Get 10 Upgrades</div>
+        <div class="achievement">Achievement 6: Collect 10000 Coins</div>
+        <div class="achievement">Achievement 7: Max Out Upgrades</div>
+    </div>
+    <script>
+        // Game Logic Here
+        function showStats() {
+            document.querySelector('.stats').style.display = 'block';
+            document.querySelector('.achievements').style.display = 'none';
+        }
+        function showAchievements() {
+            document.querySelector('.achievements').style.display = 'block';
+            document.querySelector('.stats').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
