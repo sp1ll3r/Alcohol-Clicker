@@ -3,58 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcohol Clicker Game</title>
+    <title>Alcohol Clicker</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
-        .button { padding: 20px; font-size: 24px; cursor: pointer; }
-        .stats { margin: 20px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        /* Better styling */
+        .container { display: flex; flex-direction: column; align-items: center; }
+        /* Mobile optimization */
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+        }
     </style>
 </head>
 <body>
-    <h1>Alcohol Clicker Game</h1>
-    <div class="stats">
-        <p>Alcohol: <span id="alcohol-count">0</span></p>
-        <p>Upgrades: <span id="upgrades-count">0</span></p>
+    <div class="container">
+        <h1>Welcome to Alcohol Clicker!</h1>
+        <div id="upgrades">
+            <h2>Upgrades</h2>
+            <ul>
+                <li>New Upgrade 1</li>
+                <li>New Upgrade 2</li>
+                <li>New Upgrade 3</li>
+            </ul>
+        </div>
+        <div id="prestige">
+            <h2>Prestige System</h2>
+            <p>Prestige allows you to reset your progress for special benefits!</p>
+        </div>
+        <div id="animations">
+            <p>Enjoy our new smooth animations!</p>
+        </div>
+        <div id="passive-income">
+            <h2>Passive Income</h2>
+            <p>Your investments earn money over time!</p>
+        </div>
     </div>
-    <button class="button" id="click-button">Click for Alcohol!</button>
-    <button class="button" id="upgrade-button">Buy Upgrade (Cost: <span id="upgrade-cost">5</span> Alcohol)</button>
-    <script>
-        let alcohol = 0;
-        let upgrades = 0;
-        let upgradeCost = 5;
-
-        document.getElementById('click-button').addEventListener('click', () => {
-            alcohol += (1 + upgrades);
-            document.getElementById('alcohol-count').innerText = alcohol;
-        });
-
-        document.getElementById('upgrade-button').addEventListener('click', () => {
-            if (alcohol >= upgradeCost) {
-                alcohol -= upgradeCost;
-                upgrades++;
-                document.getElementById('upgrades-count').innerText = upgrades;
-                document.getElementById('alcohol-count').innerText = alcohol;
-                upgradeCost = Math.floor(upgradeCost * 1.5);
-                document.getElementById('upgrade-cost').innerText = upgradeCost;
-            } else {
-                alert('Not enough alcohol to buy an upgrade!');
-            }
-        });
-
-        window.onload = () => {
-            const savedData = JSON.parse(localStorage.getItem('alcoholClicker')) || {};
-            alcohol = savedData.alcohol || 0;
-            upgrades = savedData.upgrades || 0;
-            upgradeCost = savedData.upgradeCost || 5;
-            document.getElementById('alcohol-count').innerText = alcohol;
-            document.getElementById('upgrades-count').innerText = upgrades;
-            document.getElementById('upgrade-cost').innerText = upgradeCost;
-        };
-
-        window.onbeforeunload = () => {
-            const gameData = { alcohol, upgrades, upgradeCost };
-            localStorage.setItem('alcoholClicker', JSON.stringify(gameData));
-        };
-    </script>
 </body>
 </html>
